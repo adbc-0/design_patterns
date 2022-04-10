@@ -1,5 +1,8 @@
 import { BudgetTransportFactory, PremiumTransportFactory } from "./Creational/AbstractFactory.js";
+import { AssignmentBuilder, AssignmentDifficulty } from "./Creational/Builder.js";
 import { DesktopSpec, DeviceFactory, DeviceType, LaptopSpec } from "./Creational/FactoryMethod.js";
+import { Clone } from "./Creational/Prototype.js";
+import { Database } from "./Creational/Singleton.js";
 
 // ---------------- Factory method ----------------
 
@@ -36,3 +39,26 @@ meansOfTransport.push(budgetTransport.createPlane());
 meansOfTransport.push(budgetTransport.createPlane());
 meansOfTransport.push(premiumTransport.createPlane());
 console.log(meansOfTransport);
+
+// ---------------- Builder ----------------
+
+const assignment = new AssignmentBuilder('Physics assignment I')
+  .setDifficulty(AssignmentDifficulty.EASY)
+  .setDueDate(new Date('1995-12-17T03:13:00'))
+  .build();
+
+console.log(assignment);
+
+// ---------------- Prototype ----------------
+
+const node = {
+  value: 'original node'
+};
+
+const nodeCopy = Clone.clone(node);
+console.log(Boolean(node === nodeCopy));
+
+// ---------------- Singleton ----------------
+
+const db = Database.getInstance();
+console.log(db.query('SELECT * FROM DATE'));
