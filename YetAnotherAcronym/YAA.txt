@@ -1,0 +1,10 @@
+// https://thefullstack.xyz/dry-yagni-kiss-tdd-soc-bdfu
+KISS
+DRY
+YAGNI
+TDD
+SOLID
+BDUF
+SOC
+TDA
+SCA
