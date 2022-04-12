@@ -3,6 +3,7 @@ import { AssignmentBuilder, AssignmentDifficulty } from "./Creational/Builder.js
 import { DesktopSpec, DeviceFactory, DeviceType, LaptopSpec } from "./Creational/FactoryMethod.js";
 import { Clone } from "./Creational/Prototype.js";
 import { Database } from "./Creational/Singleton.js";
+import { NewWriter, OriginalWriter, WriterAdapter } from "./Structural/Adapter.js";
 
 // ---------------- Factory method ----------------
 
@@ -62,3 +63,13 @@ console.log(Boolean(node === nodeCopy));
 
 const db = Database.getInstance();
 console.log(db.query('SELECT * FROM DATE'));
+
+// ---------------- Adapter ----------------
+
+// get the same result (thanks to adapter) as you would get from oldWriter 
+const oldWriter = new OriginalWriter();
+const newWriter = new NewWriter();
+const writerAdapter = new WriterAdapter(newWriter);
+console.log(oldWriter.getRequest());
+console.log(newWriter.getSpecialRequest())
+console.log(writerAdapter.getRequest());
