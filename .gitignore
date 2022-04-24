@@ -1,3 +1,4 @@
 *.js
 /build
 .idea
+/Functional
