@@ -6,6 +6,8 @@ import { Database } from "./Creational/Singleton.js";
 import { NewWriter, OriginalWriter, WriterAdapter } from "./Structural/Adapter.js";
 import { EpsonPrinter, HpPrinter, WindowsPc } from "./Structural/Bridge.js";
 import { Directory, SysFile } from "./Structural/Composite.js";
+import { EmailDecorator, Notifier, SmsDecorator } from "./Structural/Decorator.js";
+import { WalletFacade } from "./Structural/Facade.js";
 
 // ---------------- Factory method ----------------
 console.log('\n--Factory Method--\n');
@@ -110,3 +112,17 @@ rootDir.add(untitledPhoto);
 sadFrogsDir.add(frogPhoto);
 
 console.log(rootDir.listFiles());
+
+// ---------------- Composite ----------------
+console.log('\n--Decorator--\n');
+
+let notifier = new Notifier();
+notifier = new EmailDecorator(notifier);
+notifier = new SmsDecorator(notifier);
+notifier.send();
+
+// ---------------- Facade ----------------
+console.log('\n--Facade--\n');
+
+const walletFacade = new WalletFacade('#23sf-433a-344d', 1553);
+walletFacade.addMoneyToWallet('#23sf-433a-344d', 1553, 10);

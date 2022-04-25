@@ -1,5 +1,6 @@
-// TODO: WRITE REMOVAL METHODS FOR DIRS and FILES
- 
+// Composite is a structural design pattern that lets you compose objects into tree structures
+// and then work with these structures as if they were individual objects.
+
 abstract class Component {
   protected _parent: Component | null;
   protected _name: string;
@@ -47,7 +48,7 @@ export class Directory extends Component {
         files.push(child.listFiles());
       }
     }
-    return `${this.name}(${files.join(' - ')})`;
+    return `${this.name}(${files.join(', ')})`;
   };
 }
  
